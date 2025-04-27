@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Our Love Story</title>
+  <style>
+    body {
+      font-family: 'Georgia', serif;
+      background: #fffaf0;
+      color: #4b2e2e;
+      margin: 0;
+      padding: 0;
+    }
+    .book-container {
+      max-width: 600px;
+      margin: auto;
+      padding: 40px 20px;
+      background: white;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+      border-radius: 10px;
+      display: none;
+    }
+    .page {
+      display: none;
+      text-align: center;
+    }
+    .page.active {
+      display: block;
+    }
+    .nav-buttons {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 30px;
+    }
+    button {
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      background-color: #ff6b81;
+      color: white;
+      font-size: 16px;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #e5536e;
+    }
+    img {
+      max-width: 100%;
+      border-radius: 10px;
+      margin-top: 20px;
+    }
+    .password-screen {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+    }
+    .password-screen input {
+      padding: 10px;
+      font-size: 16px;
+      margin-bottom: 10px;
+    }
+  </style>
+</head>
+<body>
+  <div class="password-screen" id="passwordScreen">
+    <h2>Hi babay! I know you're curious to see what shit I've stirred up now, but please enter password to begin :)</h2>
+    <input type="password" id="passwordInput" placeholder="Password" />
+    <button onclick="checkPassword()">Enter</button>
+    <p id="errorMessage" style="color:red;"></p>
+  </div>
+
+  <div class="book-container" id="bookContainer">
+    <div class="page active" id="page1">
+      <h1>Happy anniversary bee</h1>
+      <p> babbbababay </p>
+      <p id="p1"></p>
+    </div>
+    <div class="page" id="page2">
+      <h1>Chapter 2</h1>
+      <p id="p2"></p>
+    </div>
+    <div class="page" id="page3">
+      <h1>Chapter 3</h1>
+      <p id="p3"></p>
+      <img src="bee.jpg" alt="i wuv you" />
+    </div>
+    <div class="nav-buttons">
+      <button onclick="prevPage()">Previous</button>
+      <button onclick="nextPage()">Next</button>
+    </div>
+  </div>
+
+  <script>
+  let currentPage = 1;
+  const totalPages = 3;
+  const correctPassword = "2904"; // Your password
+
+  const encryptedPages = {
+    p1: "happiest anniwersawy baybee",
+    p2: "RXZlcnkgZGF5IHdpdGggeW91IGZlZWxzIGxpa2UgYSBiZWF1dGlmdWwgSSBuZXZlciB3YW50IHRvIHdha2UgdXAgZnJvbS4=",
+    p3: "SSBjYW5ub3QgZXZlbiBmYXRob20gaG93IGhhcHB5IGFuZCBibGVzc2VkIEkgZmVlbCB0b2RheSB3aXRoIHlvdSBieSBteSBzaWRl" // Your new secret
+  };
+
+  function typeWriter(element, text, speed = 50) {
+    let i = 0;
+    element.innerHTML = "";
+    function typing() {
+      if (i < text.length) {
+        element.innerHTML += text.charAt(i);
+        i++;
+        setTimeout(typing, speed);
+      }
+    }
+    typing();
+  }
+
+  function showPage(page) {
+    for (let i = 1; i <= totalPages; i++) {
+      document.getElementById(`page${i}`).classList.remove('active');
+    }
+    document.getElementById(`page${page}`).classList.add('active');
+    
+    const pageId = `p${page}`;
+    const decoded = atob(encryptedPages[pageId]);
+    const element = document.getElementById(pageId);
+    typeWriter(element, decoded, 50); // Typing speed
+  }
+
+  function nextPage() {
+    if (currentPage < totalPages) {
+      currentPage++;
+      showPage(currentPage);
+    }
+  }
+
+  function prevPage() {
+    if (currentPage > 1) {
+      currentPage--;
+      showPage(currentPage);
+    }
+  }
+
+  function checkPassword() {
+    const input = document.getElementById("passwordInput").value;
+    const error = document.getElementById("errorMessage");
+    if (input === correctPassword) {
+      document.getElementById("passwordScreen").style.display = "none";
+      document.getElementById("bookContainer").style.display = "block";
+      showPage(1); // start with page 1
+    } else {
+      error.textContent = "Incorrect password. Try again.";
+    }
+  }
+  </script>
+</body>
+</html>
