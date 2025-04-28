@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Virtual Card</title>
+  <style>
+    body {
+      font-family: 'Georgia', serif;
+      background: #fffaf0;
+      color: #ADD8E6;
+      margin: 0;
+      padding: 0;
+    }
+    .book-container {
+      max-width: 600px;
+      margin: auto;
+      padding: 40px 20px;
+      background: white;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+      border-radius: 10px;
+      display: none;
+    }
+    .page {
+      display: none;
+      text-align: center;
+    }
+    .page.active {
+      display: block;
+    }
+    .nav-buttons {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 30px;
+    }
+    button {
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      background-color: #ff6b81;
+      color: white;
+      font-size: 16px;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #e5536e;
+    }
+    img {
+      max-width: 100%;
+      border-radius: 10px;
+      margin-top: 20px;
+    }
+    .password-screen {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+    }
+    .password-screen input {
+      padding: 10px;
+      font-size: 16px;
+      margin-bottom: 10px;
+    }
+        #hiddenMessage {
+      opacity: 0;
+      transition: opacity 0.5s ease;
+      font-size: 20px;
+      color: #333;
+      margin-top: 10px;
+      display: none;
+    }
+    #icon {
+      cursor: pointer;
+      width: 50px;
+      height: 50px;
+      transition: transform 0.2s;
+    }
+    #icon:hover {
+      transform: scale(1.1);
+    }
+  </style>
+</head>
+<body>
+  <div class="password-screen" id="passwordScreen">
+    <center>
+      <h1>Amesoeur🦋</h1>
+    <h2>Hi babay I know you're curious to see what shit I've stirred up now, but please enter password to begin :)</h2>
+    </center>
+    <input type="password" id="passwordInput" placeholder="Password" />
+    <button onclick="checkPassword()">Enter</button>
+    <p id="errorMessage" style="color:red;"></p>
+  </div>
+
+  <div class="book-container" id="bookContainer">
+    <div class="page active" id="page1">
+      <h1>HAPPY ANNIVERSARY BAYBEE!!</h1>
+      <p style="color:black;"> <br><br>Cheers to us!!<br> First, I thank the Lord for giving me the best gift, YOU, and for being with us this whole time. You're amazing and i hope and pray we grow to be amazing together. </p>
+      <img src="https://tinypic.host/images/2025/04/28/1000169618.jpg" alt="1000169618" border="0">
+      <p style="color:black;"> I can't believe we're here already!😭 2 YEARS HUH?! That's 730 days of me annoying you..or more.<br> I'm gonna make this short phi since you don't like paragraphs that much. And i'm no poet like you so don't judge.  </p>
+      <p id="p1"></p>
+    </div>
+    
+    <div class="page" id="page2">
+ 
+
+      
+      <h1>Home is what you are</h1>
+       <img id="icon" src="https://cdn-icons-png.flaticon.com/512/709/709612.png" alt="Click to reveal" title="Click me!">
+  <!-- Hidden Message -->
+  <div id="hiddenMessage">
+    Bee, I'm really grateful for you. Let me just say, for all my shortcomings this year please forgive me. Know that I am in love with you entirely. Heart Mind Body and Soul. You're mine and I yours🖤 As Selena Gomez said in one of her songs: "..no one compares, you stand alone.."
+<br><br><br>
+I cannot promise that we won't fight but I can promise that I will stick by you no matter what. When we do fight, please remember all the good parts of our relationship. We will concour and fight through all hurdles, together. 
+  
+  <img src="https://tinypic.host/images/2025/04/28/1000169628.jpg" alt="1000169628" border="0">
+  May we grow together beautifully. <br> I love you Mynsiem
+  </div>
+  <script>
+    const icon = document.getElementById('icon');
+    const message = document.getElementById('hiddenMessage');
+
+    const closedEye = 'https://cdn-icons-png.flaticon.com/512/709/709612.png'; // Closed eye icon
+    const openEye = 'https://cdn-icons-png.flaticon.com/512/709/709586.png';   // Open eye icon
+
+    icon.addEventListener('click', function() {
+      if (message.style.display === 'none' || message.style.display === '') {
+        message.style.display = 'block';
+        setTimeout(() => { message.style.opacity = 1; }, 10); // Start fading in
+        icon.src = openEye; // Change icon
+      } else {
+        message.style.opacity = 0; // Start fading out
+        setTimeout(() => { message.style.display = 'none'; }, 500); // Wait for fade-out to finish
+        icon.src = closedEye; // Change back to closed icon
+      }
+    });
+  </script>
+   
+      <p id="p2"></p>
+    </div>
+    <div class="page" id="page3">
+      <h1>Thankyou for showering me with love🩵</h1>
+      <p id="p3"></p>
+      <img src="https://tinypic.host/images/2025/04/28/1000169585.jpg" alt="1000169585" border="0">
+      <p style="color:black;"> Walking this life wiyou<br><br><br> I can't wait to start our adult lives. Bee, no matter where we end up which career paths we take, i shall be with you through it all. I'm rich when I'm with you I'm complete with you. </p>
+      
+      <img src="https://tinypic.host/images/2025/04/28/1000169630.jpg" alt="1000169630" border="0">
+      <p style="color:black;"> Baby, my plans failed to surprise you with a gift along with this "card". I promise you when i save up i'll spoil you but for now, this will just have to do:( </p> <br><br> <p style="color:red;"> Muuuaaaahhhhhhhhh na poot.</p>
+    </div>
+    <div class="nav-buttons">
+      <button onclick="prevPage()">Previous</button>
+      <button onclick="nextPage()">Next</button>
+    </div>
+  </div>
+
+  <script>
+  let currentPage = 1;
+  const totalPages = 3;
+  const correctPassword = "010429"; // Your password
+
+  const encryptedPages = {
+    p1: "",
+    p2: "",
+    p3: "SSBjYW5ub3QgZXZlbiBmYXRob20gaG93IGhhcHB5IEkgYW0gdG8gYmUgaGVyZSB3aXRoIHlvdSBieSB5b3VyIHNpZGUgdG9kYXkuIFlvdSdyZSBNWSBzb3VsbWF0ZS4KSGVyZSdzIHRvIG1vcmUgcmlkZXMgdG8gZGFtIHdpdGggbWUgc2luZ2luZyBvZmYga2V5IGFuZCB5b3Ugd2l0aCB0aGUgYW5nZWwgdm9pY2Ugb25seSB2b2ljaW5nIDIgd29yZHMuIEhlcmUncyB0byB1cyByZXNvbHZpbmcgaXNzdWVzIG1vcmUgZWZmaWNpZW50bHkgbm93LiBIZXJlJ3MgdG8gWU9VIGZvciBmaW5hbGx5IGJlaW5nIGNvbWZvcnRhYmxlIHRvIHNob3cgbWUgcGFydHMgb2YgeW91IHRoYXQgSSBmaW5kIGFtYXppbmcuIEhlcmUncyB0byBtb3JlIHdlaXJkIGRhbmNlcyBhbmQgbW9yZSBzdGlua3kgZmFydHMgYW5kIHN3ZWF0cy4gCgpJIHdpbGwgY2hlcmlzaCBlYWNoIGVtYmFyYXNzaW5nIG1vbWVudCBhbmQgZWFjaCBjdXRlIGVwaXNvZGVzIG9mIHlvdSwgZm9yZXZlci4=" // Your new secret
+  };
+
+  function typeWriter(element, text, speed = 10) {
+    let i = 0;
+    element.innerHTML = "";
+    function typing() {
+      if (i < text.length) {
+        element.innerHTML += text.charAt(i);
+        i++;
+        setTimeout(typing, speed);
+      }
+    }
+    typing();
+  }
+
+  function showPage(page) {
+    for (let i = 1; i <= totalPages; i++) {
+      document.getElementById(`page${i}`).classList.remove('active');
+    }
+    document.getElementById(`page${page}`).classList.add('active');
+    
+    const pageId = `p${page}`;
+    const decoded = atob(encryptedPages[pageId]);
+    const element = document.getElementById(pageId);
+    typeWriter(element, decoded, 60); // Typing speed
+  }
+
+  function nextPage() {
+    if (currentPage < totalPages) {
+      currentPage++;
+      showPage(currentPage);
+    }
+  }
+
+  function prevPage() {
+    if (currentPage > 1) {
+      currentPage--;
+      showPage(currentPage);
+    }
+  }
+
+  function checkPassword() {
+    const input = document.getElementById("passwordInput").value;
+    const error = document.getElementById("errorMessage");
+    if (input === correctPassword) {
+      document.getElementById("passwordScreen").style.display = "none";
+      document.getElementById("bookContainer").style.display = "block";
+      showPage(1); // start with page 1
+    } else {
+      error.textContent = "Incorrect password. Try again.";
+    }
+  }
+  </script>
+</body>
+</html>
